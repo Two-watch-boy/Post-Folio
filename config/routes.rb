@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   resources :projects
-  get 'scaffold/projects'
 
-  get 'scaffold/projects'
+  get "/login", to: "sessions#new"
+  get "/logout", to: "sessions#destroy"
+  post "/sessions", to: "sessions#create"
 
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
