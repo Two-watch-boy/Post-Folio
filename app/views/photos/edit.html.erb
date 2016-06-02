@@ -1,6 +1,16 @@
 <h1>Editing Photo</h1>
 
-<%= render 'form' %>
+<%= form_for @project do |f| %>
+<div>
+  <%= f.text_field :title, placeholder: "Title" , class: "newUser form-control"%>
+</div>
+<div>
+  <%= f.file_field :image,class: "newUser form-control userPicture"%>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>
 
-<%= link_to 'Show', @photo %> |
-<%= link_to 'Back', photos_path %>
+
+<%= link_to 'Back', project_photos_path %>

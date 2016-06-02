@@ -1,5 +1,8 @@
 <%= @project.title %>
+<% @photos.each do |photo| %>
+<%=image_tag photo.image_url(:display) %>
 
+<% end %>
+<%= link_to 'Edit Project', edit_project_path(@project) %> |
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<%= link_to 'view photos', project_photos_path(@project) %> |

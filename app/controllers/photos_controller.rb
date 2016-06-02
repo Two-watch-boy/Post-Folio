@@ -1,5 +1,7 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_action :set_project
+
 
   # GET /photos
   # GET /photos.json
@@ -25,10 +27,13 @@ class PhotosController < ApplicationController
   # POST /photos.json
   def create
     @photo = Photo.new(photo_params)
-
+    @photo.project = @project
+    unless photo_params != nil
+      Cloudinary::Uploader.upload(photo_params)
+    end
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
+        format.html { redirect_to project_photos_url(@project), notice: 'Photo was successfully created.' }
         format.json { render :show, status: :created, location: @photo }
       else
         format.html { render :new }
@@ -41,6 +46,9 @@ class PhotosController < ApplicationController
   # PATCH/PUT /photos/1.json
   def update
     respond_to do |format|
+      unless photo_params != nil
+        Cloudinary::Uploader.upload(photo_params)
+      end
       if @photo.update(photo_params)
         format.html { redirect_to @photo, notice: 'Photo was successfully updated.' }
         format.json { render :show, status: :ok, location: @photo }
@@ -67,8 +75,11 @@ class PhotosController < ApplicationController
       @photo = Photo.find(params[:id])
     end
 
+    def set_project
+      @project = Project.find(params[:project_id])
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.fetch(:photo, {})
+      params.require(:photo).permit(:title, :image)
     end
 end

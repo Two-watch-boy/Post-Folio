@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :photos
-  resources :projects
+  resources :projects do
+    resources :photos
+  end
 
   root to: "landing#index"
 

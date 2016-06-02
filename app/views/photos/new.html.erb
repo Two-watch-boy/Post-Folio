@@ -1,5 +1,13 @@
 <h1>New Photo</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', photos_path %>
+<%= form_for [@project, @photo] do |f| %>
+<div>
+  <%= f.text_field :title, placeholder: "Title" , class: "newUser form-control"%>
+</div>
+<div>
+  <%= f.file_field :image,class: "newUser form-control userPicture"%>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>

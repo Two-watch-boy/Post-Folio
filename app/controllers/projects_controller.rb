@@ -10,6 +10,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @photos = Photo.where(:project_id => @project.id)
+
   end
 
   # GET /projects/new
@@ -74,6 +76,12 @@ class ProjectsController < ApplicationController
       @project = Project.find(params[:id])
     end
 
+    def set_photo
+      @photo = Photo.find(params[:id])
+    end
+    def get_photos_for_project
+      Photo.find(project_id:@project.id)
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:title, :media, :date, :thumbnail, :description)
