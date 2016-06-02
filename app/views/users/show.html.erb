@@ -1,8 +1,11 @@
 <p id="notice"><%= notice %></p>
-
+<%= @current_user %>
 <%= @user.name %>
 <%= @user.email %>
 <%= @user.phone %>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<% unless @user.avatar_url.nil? %> <%= image_tag @user.avatar_url %></br>
+<% end %>
+<% if @user == current_user %>
+  <%= link_to 'Edit', edit_user_path(@user) %>
+<% end %>
 <%= link_to 'Back', users_path %>

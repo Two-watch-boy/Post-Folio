@@ -1,6 +1,27 @@
 <h1>Editing Project</h1>
 
-<%= render 'form' %>
+<%= form_for @project do |f| %>
+
+<div>
+  <%= f.text_field :title, placeholder: "Title" , class: "newUser form-control"%>
+</div>
+<div>
+  <%= f.text_field :media, placeholder: "Media" , class: "newUser form-control"%>
+</div>
+<div>
+  <%= f.date_field :date, class: "newUser form-control"%>
+</div>
+<div>
+  <%= f.file_field :thumbnail, placeholder: "Picture URL" ,class: "newUser form-control userPicture"%>
+</div>
+<div>
+  <%= f.text_area :description, placeholder: "Bio" ,class: "newUser form-control userPicture"%>
+</div>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>
 
 <%= link_to 'Show', @project %> |
 <%= link_to 'Back', projects_path %>

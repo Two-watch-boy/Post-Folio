@@ -25,7 +25,10 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-
+    unless project_params != nil
+      Cloudinary::Uploader.upload(project_params)
+    end
+    @project.user = current_user
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -41,6 +44,10 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1.json
   def update
     respond_to do |format|
+      unless project_params != nil
+        Cloudinary::Uploader.upload(project_params)
+      end
+
       if @project.update(project_params)
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { render :show, status: :ok, location: @project }
@@ -69,6 +76,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.fetch(:project, {})
+      params.require(:project).permit(:title, :media, :date, :thumbnail, :description)
     end
 end

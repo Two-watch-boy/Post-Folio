@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+  resources :photos
   resources :projects
+
+  root to: "landing#index"
+
+  get "/landing", to: "landing#index"
+
 
   get "/login", to: "sessions#new"
   get "/logout", to: "sessions#destroy"

@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+html, body{
+  background-color: #272727;
+}
+.navbar-default {
+  background-color: #A1CD3A;
+}
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+  background-color: #8BC34A;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #8BC34A;
+}
+.thumbnail{
+  width: 80%;
+  margin: auto;
+}
+.thumbTitle{
+  font-size: 2vw;
+  text-align: center;
+}
