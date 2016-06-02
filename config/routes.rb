@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   end
 
   root to: "landing#index"
-
+  get "/contact", to: "users#contact"
   get "/landing", to: "landing#index"
 
 

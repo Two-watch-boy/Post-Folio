@@ -15,15 +15,12 @@
  */
 
 html, body{
-  background-color: #272727;
+  background-color: #424242;
 }
 .navbar-default {
-  background-color: #A1CD3A;
+  background-color: #272727;
 }
-.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
-  background-color: #8BC34A;
-}
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
   background-color: #8BC34A;
 }
 .thumbnail{
@@ -33,4 +30,33 @@ html, body{
 .thumbTitle{
   font-size: 2vw;
   text-align: center;
+}
+.userPhoto, .editUser{
+  display: block;
+  width: 50%;
+  margin: auto;
+  margin-top: 50px;
+}
+.userBio{
+  font-size: 20px;
+}
+.userContact{
+  width:20
+}
+.container{
+  background-color: #3b3b3b
+}
+.contact{
+  width: 50px;
+}
+.userPhone{
+  padding-left: 10px;
+}
+.carousel-inner > .item > img,
+ .carousel-inner > .item > a > img {
+     width: 70%;
+     margin: auto;
+ }
+.carouselImage{
+  height:400px;
 }

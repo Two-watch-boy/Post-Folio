@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Projects</h1>
+<div class="container">
+<h1>Projects</h1>
 
   <body>
-    <div class="container">
       <div class="row">
         <% @projects.each do |project| %>
           <div class="col-sm-3">
@@ -14,9 +14,12 @@
           </div>
         <% end %>
       </div>
-    </div>
   </body>
 
-<br>
-
-<%= link_to 'New Project', new_project_path %>
+  </br>
+  <% if current_user %>
+    <%= link_to 'New Project', new_project_path %>
+  <% end %>
+  </br>
+  </br>
+</div>

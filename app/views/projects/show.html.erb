@@ -1,8 +1,43 @@
-<%= @project.title %>
-<% @photos.each do |photo| %>
-<%=image_tag photo.image_url(:display) %>
+<div class="container">
+  <div class="row">
+    <div class"col-sm-8">
+      <br>
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active carouselImage">
+            <%= image_tag @project.thumbnail_url %>
+          </div>
 
-<% end %>
+          <% @photos.each do |photo| %>
+            <div class="item carouselImage">
+              <%=image_tag photo.image_url%>
+              <div class="carousel-caption">
+                <h3><%= photo.title %></h3>
+              </div>
+            </div>
+          <% end %>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <h1><%= @project.title %></h1>
+    <h6><%= @project.media %></h6>
+    <h4><%= @project.date %></h4>
+    <h4> <%= @project.description %></h4>
+
+  </div>
+</div>
 <%= link_to 'Edit Project', edit_project_path(@project) %> |
 
 <%= link_to 'view photos', project_photos_path(@project) %> |

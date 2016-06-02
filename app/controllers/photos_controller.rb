@@ -21,6 +21,8 @@ class PhotosController < ApplicationController
 
   # GET /photos/1/edit
   def edit
+    @photo.project = @project
+
   end
 
   # POST /photos

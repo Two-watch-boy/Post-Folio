@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Project03</title>
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="screen" title="no title" charset="utf-8">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" charset="utf-8"></script>
   <link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.min.css" >
@@ -11,11 +12,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<% flash.each do |key, value| %>
-<h1><%= value %></h1>
-<% end %>
-
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -25,11 +21,11 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "home", "/", class:"navbar-brand"%>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><%= link_to "projects", projects_path %></li>
+          <li><%= link_to "Home", "/"%></li>
+          <li><%= link_to "Projects", projects_path %></li>
           <li class="dropdown">
           </li>
         </ul>
