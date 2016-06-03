@@ -34,10 +34,14 @@
     <h1><%= @project.title %></h1>
     <h6><%= @project.media %></h6>
     <h4><%= @project.date %></h4>
-    <h4> <%= @project.description %></h4>
+    <h4><%= @project.description %></h4>
 
   </div>
 </div>
-<%= link_to 'Edit Project', edit_project_path(@project) %> |
-
-<%= link_to 'view photos', project_photos_path(@project) %> |
+<% if current_user == @project.user%>
+  <%= link_to 'Edit Project', edit_project_path(@project) %> |
+  <%= link_to 'view Photos', project_photos_path(@project) %> |
+  <%= link_to 'Delete Project', @project, method: :delete, data: { confirm: 'Are you sure?' } %>|
+<% end %>
+</br>
+</br>

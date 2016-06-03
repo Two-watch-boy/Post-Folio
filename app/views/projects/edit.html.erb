@@ -1,4 +1,4 @@
-<h1>Editing Project</h1>
+<h1 class="newUser">Editing Project</h1>
 
 <%= form_for @project do |f| %>
 
@@ -18,10 +18,8 @@
   <%= f.text_area :description, placeholder: "Bio" ,class: "newUser form-control userPicture"%>
 </div>
 
-<div class="actions">
+<div class="actions newUser">
   <%= f.submit %>
+  <%= link_to 'Back', projects_path %>
 </div>
 <% end %>
-
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>

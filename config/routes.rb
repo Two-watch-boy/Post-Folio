@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   resources :projects do
-    resources :photos
+    resources :photos, except: :delete
+
   end
 
   root to: "landing#index"
   get "/contact", to: "users#contact"
   get "/landing", to: "landing#index"
 
+  delete "/projects/:project_id/photos/:id", to: "photos#destroy", as: "delete_photo"
 
   get "/login", to: "sessions#new"
   get "/logout", to: "sessions#destroy"

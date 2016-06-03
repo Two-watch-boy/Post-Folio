@@ -19,6 +19,7 @@ html, body{
 }
 .navbar-default {
   background-color: #272727;
+  z-index: 999;
 }
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
   background-color: #8BC34A;
@@ -59,4 +60,23 @@ html, body{
  }
 .carouselImage{
   height:400px;
+}
+.deletePicture{
+  margin-left: 35px;
+}
+.fall{
+  width: 20%;
+}
+.newUser{
+  width: 33%;
+  margin-left: 33%;
+}
+.header{
+  text-align: center;
+  font-size: 4vw;
+}
+.banner{
+  text-align: center;
+  font-size: 2vw;
+  color: grey;
 }

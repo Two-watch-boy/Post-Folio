@@ -1,1 +1,19 @@
-<h1>woot! homepage</h1>
+<h1 class="header">Portfolio</h1>
+
+<p class="banner">
+  Feel free to share some of your portfolio pieces with the world.
+</p>
+<hr>
+<hr>
+<p class="banner">
+  These are some of the more recent projects posted.
+</p>
+<div class="container">
+  <div class="row">
+    <% @projects.take(4).each do |project| %>
+      <div class="col-xs-3">
+        <%= image_tag project.thumbnail_url(:display), class:"thumbnail" %>
+      </div>
+      <% end %>
+  </div>
+</div>

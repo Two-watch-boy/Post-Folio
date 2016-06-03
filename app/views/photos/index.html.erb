@@ -1,24 +1,29 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <h1>Photos</h1>
+  <div class="row">
 
-<h1>Listing Photos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @photos.each do |photo| %>
-      <tr>
-        <td><%= image_tag photo.image_url(:display) %>
-        <td><%= link_to 'Edit Project', edit_project_path(@project) %></td>
-      </tr>
+      <div class="col-sm-4">
+        <% if photo.project_id == @project.id %>
+          <%= image_tag photo.image_url(:display), class:"thumbnail" %>
+          <% if current_user %>
+            <p class="deletePicture">
+              <%= link_to 'Delete Photo', delete_photo_url(@project, photo.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          <% end %>
+        <% end %>
+
+      </div>
     <% end %>
-  </tbody>
-</table>
 
-<br>
+  </div>
 
-<%= link_to 'New Photo', new_project_photo_path %>
+  </br>
+  </br>
+  <% if current_user == @project.user%>
+    <%= link_to 'Edit Project', edit_project_path(@project) %> |
+    <%= link_to 'New Photo', new_project_photo_path %> |
+  <% end %>
+  </br>
+  </br>
+</div>
