@@ -14,9 +14,9 @@
   <div class="row">
     <div class="col-sm-7">
       <p class="userPhone"><%= @user.phone %></p>
-      <%= mail_to @user.email,(image_tag "email", class: "contact" )%>
-      <%= link_to (image_tag "facebook", class: "contact" , class: "contact" ), @user.fb_link %>
-      <%= link_to (image_tag "linkedin", class: "contact" ), @user.li_link %>
+      <%= mail_to @user.email,(image_tag "email.png", class: "contact" )%>
+      <%= link_to (image_tag "facebook.png", class: "contact" , class: "contact" ), @user.fb_link %>
+      <%= link_to (image_tag "linkedin.png", class: "contact" ), @user.li_link %>
     </div>
     <div class="col-sm-5">
       <div class="editUser">
